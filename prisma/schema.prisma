@@ -1,0 +1,34 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  color     String   @default("blue") // UI 배지 컬러 클래스 매핑용
+  assets    Asset[]
+  createdAt DateTime @default(now())
+
+  @@map("categories")
+}
+
+model Asset {
+  id         Int      @id @default(autoincrement())
+  title      String
+  amount     BigInt   // 대규모 자산 가액 지원
+  memo       String?
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([categoryId])
+  @@map("assets")
+}
+
