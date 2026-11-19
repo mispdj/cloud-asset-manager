@@ -34,3 +34,10 @@
 - [x] **Task 4.3**: 카테고리별 필터링 동작 및 자산 항목 삭제 동작 검증
 - [x] **Task 4.4**: `package.json`에 Vercel 빌드 스크립트(`prisma generate && next build`) 동기화
 - [x] **Task 4.5**: 프로덕션 빌드(`npm run build`) 테스트 수행 및 무결성 최종 점검
+
+---
+
+## PWA 전환 작업 (P1, P2, P3)
+- [x] **P1.** manifest.json과 아이콘(192·512px) 추가 (display: standalone)
+- [x] **P2.** 설치 조건만 맞추는 최소 서비스 워커 등록 (오프라인 캐시 없음)
+- [ ] **P3.** 배포 후 폰에서 홈 화면 설치 확인 (사람이 확인)
